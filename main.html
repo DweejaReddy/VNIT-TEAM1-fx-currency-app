@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Analyzer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="/icon/icon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="title">
+        <p>Currency Converter and Analyzer - Team 1</p>
+    </div>
+    <div class="btn-box text-center">
+        <button class="tablinks" onclick="toggleChart()">
+            <i class="fa-solid fa-chart-line"></i>Charts
+        </button>
+        <button class="tablinks" onclick="toggleConvert()">
+            <i class="fa-solid fa-money-bill-transfer"></i>Convert
+        </button>
+        
+    </div>
+    
+    <div class="content" id="Chart">
+        <div class="content-left">
+            <p>From:</p>
+            <select class="" id="curr-1" required onchange="chartChange()">
+            </select>
+        </div>
+        <div class="content-center" id="toID">
+            <p>To:</p>
+            <select class="" id="curr-2" required onchange="chartChange()">
+            </select>
+        </div>
+        <div class="content-right">
+            <p>Year:</p>
+            <select class="" id="year" required onchange="chartChange()">
+                <option value="2012" selected>2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+            </select>
+        </div>
+        <div class="content-right">
+            <p>Month:</p>
+            <select class="" id="month" required onchange="chartChange()">
+                <option value="Jan" selected>January</option>
+                <option value="Feb">Februay</option>
+                <option value="Mar">March</option>
+                <option value="Apr">April</option>
+                <option value="May">May</option>
+                <option value="Jun">June</option>
+                <option value="Jul">July</option>
+                <option value="Aug">August</option>
+                <option value="Sep">September</option>
+                <option value="Oct">October</option>
+                <option value="Nov">November</option>
+                <option value="Dec">December</option>
+            </select>
+        </div>
+        <div class="content-right">
+            <p>Day:</p>
+            <select class="" id="day" required onchange="chartChange()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6" selected>6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+        </div>
+    </div>
+    <br>
+
+    <div class="btn-group" role="group"  id="btn-grp" aria-label="Basic radio toggle button group">
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="1M"
+            onclick="chartChange()">
+        <label class="btn btn-outline-light b1" for="btnradio1" >1M</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="1Q"
+            onclick="chartChange()">
+        <label class="btn btn-outline-light b1" for="btnradio2">1Q</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="2Q"
+            onclick="chartChange()">
+        <label class="btn btn-outline-light b1" for="btnradio3">2Q</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="3Q"
+            onclick="chartChange()">
+        <label class="btn btn-outline-light b1" for="btnradio4">3Q</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="4Q"
+            onclick="chartChange()">
+        <label class="btn btn-outline-light b1" for="btnradio5">4Q</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" value="weekly"
+            onclick="chartChange()">
+        <label class="btn btn-outline-light b1" for="btnradio6">Weekly</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off" value="quarterly"
+            onclick="chartChange()">
+        <label class="btn btn-outline-light b1" for="btnradio7">Quarterly</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio8" autocomplete="off" value="monthly"
+            onclick="chartChange()">
+        <label class="btn btn-outline-light b1" for="btnradio8">Monthly</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio9" autocomplete="off" value="yearly" checked
+            onclick="chartChange()" style=>
+        <label class="btn btn-outline-light b1" for="btnradio9">Yearly</label>
+    </div>
+
+    <!--Chart-->
+    <div class="chart-container my-3" id="tab1">
+        <div class="chart">
+            <div id="myChart"></div>
+        </div>
+        <div class="cards" style="width: 40%;">
+            <div class="container  mx-auto d-flex my-4">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-header">HIGHEST ON</div>
+                    <div class="card-body" >
+                        <p class="card-text" id="c1"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="container  mx-auto d-flex my-4">
+                <div class="card text-white bg-danger mb-3">
+                    <div class="card-header">LOWEST ON</div>
+                    <div class="card-body">
+                        <p class="card-text" id="c2"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/index.js"></script>
+    <br>
+
+    <div class="converter-container" id="tab2" >
+        Amount:
+        <input id="takeInp" type="number" onchange="currConvert()" value=1 style="width: 50px;"></input>
+        <div><p id="converse"></p></div>      
+    </div>
+    
+    <footer class="page-footer font-small" id="foot">
+
+        <div class="footer-copyright text-center py-3">
+            <h3 style="color: #e6c041;">Contributors</h3>
+            <div class="container d-flex align-items-center">
+                <div class="row align-items-center">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="img/pic1.jpg">
+                                <ul class="social">
+                                    <li><a href="https://github.com/DweejaReddy" class="fab fa-github"></a></li>
+                                    <li><a href="https://www.linkedin.com/in/dweeja-reddy-devi-b12508204/" class="fab fa-linkedin"></a></li>
+                                </ul>
+                            </div>
+                            <div class="team-content">
+                                <div class="team-info">
+                                    <h3 class="title text-white">Dweeja Reddy</h3>
+                                    <span class="post">Web Developer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+             
+                    <div class="col-md-3 col-sm-6">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="img/pic1.jpg">
+                                <ul class="social">
+                                    <li><a href="#" class="fab fa-github"></a></li>
+                                    <li><a href="#" class="fab fa-linkedin"></a></li>
+                                </ul>
+                            </div>
+                            <div class="team-content">
+                                <div class="team-info">
+                                    <h3 class="title">Kristiana</h3>
+                                    <span class="post">Web Designer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="img/pic1.jpg">
+                                <ul class="social">
+                                    <li><a href="#" class="fab fa-github"></a></li>
+                                    <li><a href="#" class="fab fa-linkedin"></a></li>
+                                </ul>
+                            </div>
+                            <div class="team-content">
+                                <div class="team-info">
+                                    <h3 class="title">Williamson</h3>
+                                    <span class="post">Web Developer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="img/pic1.jpg">
+                                <ul class="social">
+                                    <li><a href="#" class="fab fa-github"></a></li>
+                                    <li><a href="#" class="fab fa-linkedin"></a></li>
+                                </ul>
+                            </div>
+                            <div class="team-content">
+                                <div class="team-info">
+                                    <h3 class="title">Williamson</h3>
+                                    <span class="post">Web Developer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="our-team">
+                            <div class="pic">
+                                <img src="img/pic1.jpg">
+                                <ul class="social">
+                                    <li><a href="#" class="fab fa-github"></a></li>
+                                    <li><a href="#" class="fab fa-linkedin"></a></li>
+                                </ul>
+                            </div>
+                            <div class="team-content">
+                                <div class="team-info">
+                                    <h3 class="title">Williamson</h3>
+                                    <span class="post">Web Developer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <p class="text-center py-3" style="background-color: #fff;color: #2e0222;margin:0 ;">List of ISO currency codes and definitions is available <a style="color: red;" href="https://www.iban.com/currency-codes " target="_blank">here.</a>
+    </p>
+</body>
+
+</html>
