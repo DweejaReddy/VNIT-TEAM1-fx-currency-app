@@ -315,3 +315,13 @@ a{
     color: #e6c041;
     padding-top: 20px;
 }
+.last-pic{
+    align-items: center !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.contri-images{
+    display: flex;
+    justify-content: center;
+}
