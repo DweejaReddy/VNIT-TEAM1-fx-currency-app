@@ -25,6 +25,7 @@
 * VSCODE
 * Bootstrap
 * FontAwesome
+* CanvasJS
 
 ### Contributors:
 * [Dweeja Reddy](https://github.com/DweejaReddy)
